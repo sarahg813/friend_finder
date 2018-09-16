@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<% include ../partials/head %>
+</head>
+<body>
+    <header>
+        <% include ../partials/header %>
+    </header>
+    
+
+    <main>
+        <h5>You have a similar personality as</h5>
+
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="" alt="">
+            <div class="card-body"></div>
+        </div>
+    </main>
+
+
+    <!-- jquery and bootstrap js scripts -->
+    <% include ../partials/jqueryBootstrapScripts %>
+    
+    <script type="text/javascript">
+        $.ajax({
+        url: '/useranswers',
+        method: 'GET'
+        }).then(function(data){
+            var ob, h, img;
+            var currentUser = data[data.length-1];
+            var currentUserArr = [];
+            var leastDiffUserTotal = 100;
+            var leastDiffUser;
+
+            //push currentUser's data values into array
+            for (let key in currentUser) {
+                currentUserArr.push(currentUser[key]);
+            }
+
+            console.log("currentUserArr: " + currentUserArr);
+                
+            // loop through other user's data except for current user
+            for (var i=0; i<data.length-1; i++){
+                var otherUserArr = [];
+                var diffArr = [];
+                ob = data[i];
+
+                //push otherUsers' value into otherUserArr array
+                for (let key in ob) {
+                    otherUserArr.push(ob[key]);
+                }
+
+                console.log("otherUserArr: " + otherUserArr);
+                
+                //loop through currentUserArr & otherUserArr to get the differences 
+                // start at index 3 to only loop through the answers in the array
+                for (var j = 3; j<=currentUserArr.length; j++) {
+                    if (currentUserArr[j] != otherUserArr[j]) {
+                        diffArr.push(Math.abs(currentUserArr[j]-otherUserArr[j]));
+                    }
+                }
+
+                console.log("diffArr: " + diffArr);
+                console.log("Array reduced: " + diffArr.reduce(reducer));
+
+                //if the reduced number is < leastDiffUserTotal then it will update the variable
+                //then store the username and img into the variables 
+                if (diffArr.reduce(reducer) < leastDiffUserTotal) {
+                    leastDiffUserTotal = diffArr.reduce(reducer);
+                    leastDiffUser = otherUserArr[1];
+                    leastDiffUserImg = otherUserArr[2];
+                }
+            }
+
+            function reducer (accumulator, currentValue) {
+                return accumulator + currentValue;
+            }
+
+            console.log("User with least differences: " + leastDiffUser);
+            console.log("User Img URL: " + leastDiffUserImg);
+            
+            h = $('<h5>');
+            h.text(leastDiffUser);
+
+            $('.card-img-top').attr('src', leastDiffUserImg);
+            $('.card-body').append(h);
+
+            
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<% include ../partials/head %>
+</head>
+
+<body>
+    <header>
+        <% include ../partials/header %>
+    </header>
+    
+
+    <main>
+        <h5>Fill out this survey to find out who has a similar personality as you!</h5>
+        <br><br>
+        
+        <form method="POST" action= "/submitanswers">
+            Full Name:<br>
+            <input type="text" name="username"  required><br>
+            URL of Your Picture:<br>
+            <input type="text" name="img_url" required>
+    
+            <br><br>
+            <p>1. You find it difficult to introduce yourself to other people.</p>
+            <span>Agree</span>
+            <input type="radio" value="1" name="answer1" required>
+            <input type="radio" value="2" name="answer1" required>
+            <input type="radio" value="3" name="answer1" required>
+            <input type="radio" value="4" name="answer1" required>
+            <input type="radio" value="5" name="answer1" required>
+            <span>Disagree</span>
+            <br><br>
+
+            <p>2. You often get so lost in thoughts that you ignore or forget your surroundings.</p>
+            <span>Agree</span>
+            <input type="radio" value="1" name="answer2" required>
+            <input type="radio" value="2" name="answer2" required>
+            <input type="radio" value="3" name="answer2" required>
+            <input type="radio" value="4" name="answer2" required>
+            <input type="radio" value="5" name="answer2" required>
+            <span>Disagree</span>
+            <br><br>
+
+            <p>3. You try to respond to your e-mails as soon as possible and cannot stand a messy inbox.</p>
+            <span>Agree</span>
+            <input type="radio" value="1" name="answer3" required>
+            <input type="radio" value="2" name="answer3" required>
+            <input type="radio" value="3" name="answer3" required>
+            <input type="radio" value="4" name="answer3" required>
+            <input type="radio" value="5" name="answer3" required>
+            <span>Disagree</span>
+            <br><br>
+
+            <p>4. You find it easy to stay relaxed even when there is some pressure.</p>
+            <span>Agree</span>
+            <input type="radio" value="1" name="answer4" required>
+            <input type="radio" value="2" name="answer4" required>
+            <input type="radio" value="3" name="answer4" required>
+            <input type="radio" value="4" name="answer4" required>
+            <input type="radio" value="5" name="answer4" required>
+            <span>Disagree</span>
+            <br><br>
+
+            <p>5. You do not usually initiate conversations.</p>
+            <span>Agree</span>
+            <input type="radio" value="1" name="answer5" required>
+            <input type="radio" value="2" name="answer5" required>
+            <input type="radio" value="3" name="answer5" required>
+            <input type="radio" value="4" name="answer5" required>
+            <input type="radio" value="5" name="answer5" required>
+            <span>Disagree</span>
+            <br><br>
+
+            <p>6. You rarely do something just out of sheer curiosity.</p>
+            <span>Agree</span>
+            <input type="radio" value="1" name="answer6" required>
+            <input type="radio" value="2" name="answer6" required>
+            <input type="radio" value="3" name="answer6" required>
+            <input type="radio" value="4" name="answer6" required>
+            <input type="radio" value="5" name="answer6" required>
+            <span>Disagree</span>
+            <br><br>
+
+            <p>7. Being organized is more important to you than being adaptable.</p>
+            <span>Agree</span>
+            <input type="radio" value="1" name="answer7" required>
+            <input type="radio" value="2" name="answer7" required>
+            <input type="radio" value="3" name="answer7" required>
+            <input type="radio" value="4" name="answer7" required>
+            <input type="radio" value="5" name="answer7" required>
+            <span>Disagree</span>
+            <br><br>
+
+            <p>8. You are usually highly motivated and energetic.</p>
+            <span>Agree</span>
+            <input type="radio" value="1" name="answer8" required>
+            <input type="radio" value="2" name="answer8" required>
+            <input type="radio" value="3" name="answer8" required>
+            <input type="radio" value="4" name="answer8" required>
+            <input type="radio" value="5" name="answer8" required>
+            <span>Disagree</span>
+            <br><br>
+
+            <p>9. Winning a debate matters less to you than making sure no one gets upset.</p>
+            <span>Agree</span>
+            <input type="radio" value="1" name="answer9" required>
+            <input type="radio" value="2" name="answer9" required>
+            <input type="radio" value="3" name="answer9" required>
+            <input type="radio" value="4" name="answer9" required>
+            <input type="radio" value="5" name="answer9" required>
+            <span>Disagree</span>
+            <br><br>
+
+            <p>10. Your home and work environments are quite tidy.</p>
+            <span>Agree</span>
+            <input type="radio" value="1" name="answer10" required>
+            <input type="radio" value="2" name="answer10" required>
+            <input type="radio" value="3" name="answer10" required>
+            <input type="radio" value="4" name="answer10" required>
+            <input type="radio" value="5" name="answer10" required>
+            <span>Disagree</span>
+
+            <br><br>
+            <button class="btn btn-primary">Submit</button>
+        </form>
+    </main>
+
+    <!-- jquery and bootstrap js scripts -->
+    <% include ../partials/jqueryBootstrapScripts %>
+    
+</body>
+</html>
